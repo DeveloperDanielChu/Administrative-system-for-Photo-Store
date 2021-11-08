@@ -1,0 +1,23 @@
+<h2>Ordenes</h2>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Fecha</th>
+          <th scope="col">Total Fotos</th>
+          <th scope="col">Fotos</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% ordenes.forEach( orden => { %>
+        <tr>
+          <td scope="row"><p><%=orden.id%></p></td>
+          <td scope="row"><%=orden.fecha%></td>
+          <td scope="row"><%=orden.total%></td>
+          
+          <td scope="row"><a class="btn btn-dark" href="/admin/fotos/<%=orden.id%>">Ver fotos</a></td>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>

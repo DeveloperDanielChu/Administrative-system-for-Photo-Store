@@ -1,0 +1,31 @@
+<table class="table">
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>nombre</th>
+        <th>email</th>
+        <th>contraseña</th>
+        <th>Ordenes</th>
+        <th>activo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% clientes.forEach( cliente => { %>
+        <tr>
+          <td><%=cliente.id%></td>
+          <td><%=cliente.nombre%></td>
+          <td><%=cliente.email%></td>
+          <td><%=cliente.contrasena%></td>
+          <td><a href="/admin/ordenes/<%=cliente.id%>" class="btn btn-dark">Ordenes</a></td>
+          <td><%=cliente.activo ? "Si" : "No"%></td>
+          <td>
+            <% if (cliente.activo==1) { %>
+              <a href="/admin/desactivar-cliente/<%=cliente.id%>" class="btn btn-info">Desactivar Cliente</a>
+              <% } else { %>
+              <a href="/admin/activar-cliente/<%=cliente.id%>" class="btn btn-primary">Activar Cliente</a>
+              <% } %>
+          </td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
